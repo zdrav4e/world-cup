@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Hack Bulgaria World Cup</title>
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
-<script src="bower_components/jquery/dist/jquery.js"></script>
+
+	<script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="bower_components/handlebars/handlebars.js"></script>
     <script type="text/javascript" src="app.js"></script>
+
+    <script id="game" type="text/x-handlebars-template">
+  		<div class="game jumbotron" id="{{gameid}}" style="height: 250px;">
+  			{{#if game_started}}
+  			
+	  			<div class="progress progress-striped active">
+	  				<div class="progress-bar"  role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%">
+	    				<span class="sr-only">{{progress}}% Complete</span>
+	  				</div>
+				</div>
+	  			<div class="status">{{min_left}} min left</div>
+
+  			{{else}}
+  				<div class="status">Starts at {{starts_at}}</div>
+  			{{/if}}
+  			
+  			<div class="guest">
+  				<span class="countryname">{{gcountryname}}</span>
+  				<img src="{{guest_flag}}" class="flag">
+  				<span class="score">{{guest_score}}</span>
+  			</div>
+  			<div class="host">
+  				<span class="countryname">{{hcountryname}}</span>
+  				<img src="{{host_flag}}" class="flag">
+  				<span class="score">{{host_score}}</span>
+  			</div>
+  		</div>
+	</script>
+
 </body>
 </html>
