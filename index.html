@@ -25,19 +25,29 @@
   			{{else}}
   				<div class="status">Starts at {{starts_at}}</div>
   			{{/if}}
-  			
-  			<div class="guest">
-  				<span class="countryname">{{gcountryname}}</span>
-  				<img src="{{guest_flag}}" class="flag">
+
+  			<span class="guest">
+				<button type="button" class="btn btn-lg" data-toggle="popover" title="{{guest_name}}" data-content="{{guest_details}}" data-placement="left">
+  					<img src="{{guest_flag}}" class="flag">
+  				</button>
+
   				<span class="score">{{guest_score}}</span>
-  			</div>
-  			<div class="host">
-  				<span class="countryname">{{hcountryname}}</span>
-  				<img src="{{host_flag}}" class="flag">
+  			</span>
+  			<span class="host">
   				<span class="score">{{host_score}}</span>
-  			</div>
+  				
+				<button type="button" class="btn btn-lg" data-toggle="popover" title="{{host_name}}" data-content="{{host_details}}" data-placement="right">
+					<img src="{{host_flag}}" class="flag">
+				</button>	
+  				
+  				<span class="countryname">{{host_name}}</span>
+  			</span>
   		</div>
 	</script>
+
+	<script id="team-details" type="text/x-handlebars-template">
+		{{name}} is in {{group}} group. With {{wins}} wins, {{losses}} losses and {{games}} games played
+	</script
 
 </body>
 </html>
