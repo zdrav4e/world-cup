@@ -1,6 +1,7 @@
+$(document).ready(function (){
+
 "use strict";
 
-$(document).ready(function (){
 
 var source   = $("#game").html();
 var template = Handlebars.compile(source);
@@ -12,7 +13,6 @@ var template_team = Handlebars.compile(source_team);
 $.ajax({
   url: "http://worldcup.sfg.io/matches/today",
   dataType: "json",
-
   success: function( data ) {
 
     var teams;
@@ -23,13 +23,13 @@ $.ajax({
     var now = new Date();
     var progress = new Date(match.datetime);
 
-    var minutes = (now - progress) / (1000*60);
+    var minutes = Math.floor((now - progress) / (1000*60));
 
     var minutes_percent = ((minutes - 15) / 90) * 100;
 
     var guest_flag = "flags/" + match.away_team.code + ".png";
     var host_flag = "flags/" + match.home_team.code + ".png";
-    var min_left = 105 - minutes;
+    var min_left = 90 - minutes;
     var starts_at = progress.getHours();
 
 
@@ -81,17 +81,8 @@ if (typeof match.away_team.details.group_letter === "undefined") {
     });
 
   $("body").append(html);
-  $("button").popover();
-
+  $("img.flag").popover();
     });
-
-
-
-
-  $("img.flag").click(function() {
-    $(this).parent().find("span.details").toggle();
-  });
-
   });
 
 }
