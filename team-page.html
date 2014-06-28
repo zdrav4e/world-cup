@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Hack Bulgaria World Cup</title>
-	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <title>Hack Bulgaria World Cup</title>
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <style>
         .center{
             margin-left: 30%;
@@ -11,41 +11,53 @@
     </style>
 </head>
 <body>
+<script id="teams" type="text/x-handlebars-template">
+  <nav>
+    <div>
+      <ul>
+        <a href="index.html">Home</a>
+        {{#each teams}}
+        <li> {{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </nav>
+</script>
 
-	<script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="bower_components/handlebars/handlebars.js"></script>
     <script type="text/javascript" src="app.js"></script>
 
     <script id="game" type="text/x-handlebars-template">
-  		<div class="game jumbotron center" id="{{gameid}}" style="height: 250px;" >
-  			{{#if game_started}}
+      <div class="game jumbotron center" id="{{gameid}}" style="height: 250px;" >
+        {{#if game_started}}
                 <div class="progress progress-striped active">
                     <div class="progress-bar"  role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%">
                         <span class="sr-only">{{progress}}% Complete</span>
                     </div>
                 </div>
                 <div class="status">{{min_left}} min left</div>
-  			{{else}}
-  				<div class="status">Starts at {{starts_at}}</div>
-  			{{/if}}
+        {{else}}
+          <div class="status">Starts at {{starts_at}}</div>
+        {{/if}}
             <div>
                 <span class="host">
                 <span class="countryname">{{host_name}}</span>
                     <img src="{{host_flag}}" class="flag btn btn-lg" align="top" data-toggle="popover" title="{{host_name}}" data-content=" {{host_details}}" data-placement="left">                        
                     <span class="score">{{host_score}}</span>
                 </span>
-    			   <span class="guest" class="center">
+             <span class="guest" class="center">
                     <span class="score">{{guest_score}}</span>
-    			   	<img src="{{guest_flag}}" class="flag btn btn-lg" data-toggle="popover" title="{{guest_name}}" data-content=" {{guest_details}}" data-placement="right">
+              <img src="{{guest_flag}}" class="flag btn btn-lg" data-toggle="popover" title="{{guest_name}}" data-content=" {{guest_details}}" data-placement="right">
                         <span class="countryname">{{guest_name}}</span>
-    		   </span>
+           </span>
         </div>
-	</script>
+  </script>
 
-	<script id="team-details" type="text/x-handlebars-template">
-		{{name}} is in {{group}} group. With {{wins}} wins, {{losses}} losses and {{games}} games played
-	</script
+  <script id="team-details" type="text/x-handlebars-template">
+    {{name}} is in {{group}} group. With {{wins}} wins, {{losses}} losses and {{games}} games played
+  </script
 
 </body>
 </html>

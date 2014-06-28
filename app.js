@@ -25,7 +25,7 @@ $.ajax({
 
     var minutes = Math.floor((now - progress) / (1000*60));
 
-    var minutes_percent = ((minutes - 15) / 90) * 100;
+    var minutes_percent = ((minutes) / 90) * 100;
 
     var guest_flag = "flags/" + match.away_team.code + ".png";
     var host_flag = "flags/" + match.home_team.code + ".png";
